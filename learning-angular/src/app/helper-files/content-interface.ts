@@ -3,4 +3,7 @@ interface Content {
     description: string;
     creator: string;
     imgURL?: string;
+    type?: string;
+    tags?: string[];
 }
+
