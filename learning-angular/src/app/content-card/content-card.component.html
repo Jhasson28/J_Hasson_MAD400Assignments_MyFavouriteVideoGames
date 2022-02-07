@@ -1,1 +1,5 @@
-
+<div class="title">{{ gaming ? gaming.title : '' }}</div>
+<div class="description">{{ gaming ? gaming.description : '' }}</div>
+<div class ="creator"> {{gaming ? gaming.creator : ''}}</div>
+<div class="gaming-image"><img [src]="gaming ? gaming.imgURL : ''"></div>
+<div class="type">{{ gaming ? gaming.type : '' }}</div>
