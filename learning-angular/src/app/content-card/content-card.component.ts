@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Content} from '../helper-files/content-interface';
-import { ContentList } from '../helper-files/content-list';
 
 @Component({
   selector: 'app-content-card',
@@ -8,7 +7,6 @@ import { ContentList } from '../helper-files/content-list';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  list: ContentList
   item1: Content;
   item2: Content;
   item3: Content;
@@ -39,10 +37,6 @@ export class ContentCardComponent implements OnInit {
       imgURL: 'https://www.google.com/search?q=Rust+(video+game)&sa=X&rlz=1C1CHBF_enCA972CA972&hl=en-GB&biw=1920&bih=880&sxsrf=APq-WBuQC90EoVqn-4BEO2Agk6pcLejzPw:1644196044661&tbm=isch&source=iu&ictx=1&vet=1&fir=yHSDz8QHzGRC2M%252C7GAxSix_X9GvhM%252C%252Fm%252F0zm_2_r%253BZsTRLMl_YbUeIM%252C-NAQ8YwMwdek-M%252C_%253BoGOvQSehGL0xPM%252CzDjun5soXiHmrM%252C_%253BHHN7onPyScpc6M%252CYCi4L-Z_PO0DlM%252C_%253BuUvRcAm9M_1TeM%252CVT7P_JNyC-sDWM%252C_%253Bb_v5l-ewacQZGM%252CzDjun5soXiHmrM%252C_%253BNBdSHpvu2kMmpM%252CFNRiWP4yT4bGOM%252C_&usg=AI4_-kRbj7sweuiN0pZGNQjzhIAqbtlj8A&ved=2ahUKEwjT5rrJs-z1AhUGl4kEHWNtD0AQ_B16BAg4EAE#imgrc=yHSDz8QHzGRC2M',
       type: 'Playstation, Xbox, and Computers'
     };
-    this.list = new ContentList();
-    this.list.addContent(this.item1);
-    this.list.addContent(this.item2);
-    this.list.addContent(this.item3);
 
   }
 
