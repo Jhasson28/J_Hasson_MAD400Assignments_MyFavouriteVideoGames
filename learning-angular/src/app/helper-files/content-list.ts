@@ -1,20 +1,9 @@
-
-interface Content {
-    id: number;
-    description: string;
-    creator: string;
-    imgURL?: string;
-    type?: string;
-    tags?: string[];
-}
-
+import { Content } from "./content-interface"
 class ContentList {
     private contentList: Content[];
-    
 
-    constructor(item: Content) {
+    constructor() {
         this.contentList = [];
-        this.contentList[0] = item;
     }
 
     get items(): Content[]{
@@ -23,12 +12,26 @@ class ContentList {
     }
 
 
-    public add() {
-        return this.contentList.push()
+    add(newContent: Content) {
+        this.contentList.push(newContent);
     }
 
-    public numberOfItems() {
-        return this.contentList.
+    arrayLength(): number {
+        return this.contentList.length;
     }
+
+    generateHtml(index: number): string {
+        if (index >= this.contentList.length) {
+            return `<div class="error">No Digimon found at index ${index}</div>`;
+        }
+        return `<div class="title">${this.contentList[index].title}</div>
+        <div class="description">${this.contentList[index].description}</div>
+        <div class="creator">${this.contentList[index].creator}</div>
+        <div class="imageUrl"><img src="${this.contentList[index].imgURL}"></div>
+        <div class="type">${this.contentList[index].type}</div>`;
+    }
+}
+
+    
 }
 
