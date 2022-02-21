@@ -8,12 +8,16 @@ import {Content} from '../helper-files/content-interface';
 })
 export class ContentCardComponent implements OnInit {
   @Input() gaming?: Content;
+  textDecoration: string = "underline"
 
   constructor() { 
 
   }
 
   ngOnInit(): void {
+  }
+  logId(): void{
+    console.log("id: ", this.gaming?.id, " | title is: ", this.gaming?.title);
   }
 
 }

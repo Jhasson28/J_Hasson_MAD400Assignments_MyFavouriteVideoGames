@@ -1,5 +1,16 @@
-<div class="title">{{ gaming ? gaming.title : '' }}</div>
-<div class="description">{{ gaming ? gaming.description : '' }}</div>
-<div class ="creator"> {{gaming ? gaming.creator : ''}}</div>
-<div class="gaming-image"><img [src]="gaming ? gaming.imgURL : ''"></div>
-<div class="type">{{ gaming ? gaming.type : '' }}</div>
+<div [ngSwitch]='gaming?.imgURL'>
+
+    <span *ngSwitchCase=""><img [src]="gaming?.defaultImage "> </span>
+    <span *ngSwitchDefault><img [src]="gaming?.imgURL"></span>
+    </div>
+    <h2>{{ gaming?.title}}</h2>
+    <p class="description">{{ gaming?.description }}</p>
+    <div class="meta-data">
+      <div class="author-info">
+        <span class="creator">{{ gaming?.creator }}</span>
+        <p [style.textDecoration]='textDecoration'*ngIf="gaming?.type" class="type">{{ gaming?.type }}</p>
+    </div>
+    <div *ngIf="gaming?.tags" class="tags">
+    <span class="tag" *ngFor="let tag of gaming?.tags">{{ tag }}</span>
+    </div>
+    </div>

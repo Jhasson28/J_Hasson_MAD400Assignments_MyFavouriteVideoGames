@@ -1,3 +1,20 @@
-<app-content-card *ngFor="let games of contentArray; index as i, first as isFirst"
-    [gaming]="games" [class.is-first]="isFirst">
-</app-content-card>
+<div>
+    <input #titleSearch>
+    <button (click)="checkForTitle(titleSearch.value)">Title Check</button>
+    <div>
+    <span class="success" *ngIf="titleFound"> {{ titleSearch.value}} found!</span>
+    <span class="failure" *ngIf="titleFound === false"> {{ titleSearch.value}} not found!</span>
+    </div>
+    </div>
+    
+    <app-content-card [class.found]="titleSearch.value === item.title" *ngFor="let item of (contentArray | systemTypes); first as isTheFirstElement"
+                  [gaming]="item" [class.is-first]="isTheFirstElement" class="no-type"></app-content-card>
+    
+    
+    <app-content-card [class.found]="titleSearch.value === item.title" *ngFor="let item of (contentArray | systemTypes: 'Console'); first as isTheFirstElement"
+                  [gaming]="item" [class.is-first]="isTheFirstElement" class="console"></app-content-card>
+    
+    
+    <app-content-card [class.found]="titleSearch.value === item.title" *ngFor="let item of (contentArray | systemTypes: 'PC'); first as isTheFirstElement"
+                  [gaming]="item" [class.is-first]="isTheFirstElement" [class]="item.type | lowercase"></app-content-card>
+    
